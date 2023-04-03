@@ -6,6 +6,7 @@
     <link rel="icon" href="https://fav.farm/🔥"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
 
@@ -20,8 +21,22 @@
 
 <main>
 
-    <form action="get">
+    <button>Générer une tâche aléatoire</button>
 
+    <form action="get" class="inbox">
+        <div class="form-element">
+            <label for="checkbox">Fait</label>
+            <input type="checkbox" name="checkbox" id="checkbox">
+        </div>
+        <div class="form-element">
+            <label for="task">Tâche</label>
+            <textarea class="block" name="task" id="task" rows="3"></textarea>
+        </div>
+        <div class="form-element">
+            <label for="user">Personne</label>
+            <select name="" id=""></select>
+        </div>
+        <input type="submit" value="Envoyer">
     </form>
 
 </main>

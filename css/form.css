@@ -1,0 +1,32 @@
+form {
+    width: 600px;
+    margin: auto;
+    padding: 40px;
+}
+
+form > * {
+    margin: 40px auto;
+}
+
+.form-element * {
+    display: inline;
+}
+
+textarea {
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: auto;
+}
+
+.block {
+    display: block;
+    width: 100%;
+}
+
+button {
+    display: block;
+    margin: 48px auto;
+}
