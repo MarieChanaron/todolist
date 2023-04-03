@@ -23,11 +23,12 @@ export const initializeApp = (count) => {
         taskManager.add(task);
         displayTask(task);
     }
+    console.log(taskManager);
 }
 
 const deleteTask = (event) => {
     const row = event.target.parentNode.parentNode;
-    const id = row.id;
+    const id = row.dataset.id;
     // Remove the task from the taskManager
     const index = findIndex(id, taskManager.tasks);
     taskManager.delete(index);
@@ -37,9 +38,11 @@ const deleteTask = (event) => {
 }
 
 const changeStatus = event => {
-    const id = event.target.parentNode.parentNode.id;
-    const index = findIndex(id, taskManager);
-    console.log(index);
+    console.log(event.target.parentNode);
+    const id = event.target.parentNode.parentNode.dataset.id;
+    const index = findIndex(id, taskManager.tasks);
+    const task = taskManager.tasks[index];
+    task.toggleState();
 }
 
 export default {deleteTask, changeStatus};

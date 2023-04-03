@@ -22,4 +22,8 @@ export class Task {
     get user() {
         return this._user;
     }
+
+    toggleState() {
+        this._state = !this._state;
+    }
 }

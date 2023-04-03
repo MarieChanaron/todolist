@@ -2,7 +2,7 @@ import eventHandlers from './service.mjs';
 
 const createRow = id => {
     const row = document.createElement("tr");
-    row.setAttribute("id", id);
+    row.setAttribute("data-id", id);
     return row;
 }
 
