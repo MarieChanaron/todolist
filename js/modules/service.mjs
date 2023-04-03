@@ -34,12 +34,10 @@ export const initializeApp = (count) => {
 const deleteTask = (event) => {
     const row = event.target.parentNode.parentNode;
     const id = row.dataset.id;
-    // Remove the task from the taskManager
-    const index = findIndex(id, taskManager.tasks);
+    const index = findIndex(id, taskManager.tasks); // Remove from the array
     taskManager.delete(index);
-    // Remove from the DOM
     const tableBody = document.querySelector("tbody");
-    tableBody.removeChild(row);
+    tableBody.removeChild(row); // Remove from the DOM
 }
 
 const changeStatus = event => {
@@ -52,18 +50,18 @@ const changeStatus = event => {
 const addTask = (state, description, user) => {
     const newTask = new Task(state, description, user);
     taskManager.add(newTask);
-    console.log(taskManager);
 }
 
 const handleSubmit = (event) => {
     event.preventDefault();
     const form = document.forms[0];
+    const userIndex = form[2].value;
     addTask(
         form[0].checked,
         form[1].value,
         {
-            name: RANDOM_NAMES[form[2].value], 
-            icon: RANDOM_ICONS[form[2].value]
+            name: RANDOM_NAMES[userIndex], 
+            icon: RANDOM_ICONS[userIndex]
         }
     );
     document.querySelector('form + p').innerText = 'La tâche a bien été ajoutée.';
