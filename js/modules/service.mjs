@@ -65,7 +65,6 @@ const handleSubmit = (event) => {
     );
     document.querySelector('form + p').innerText = 'La tâche a bien été ajoutée.';
     document.forms[0].reset();
-    console.log(taskManager);
 }
 
 
