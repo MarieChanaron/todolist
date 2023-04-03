@@ -30,3 +30,7 @@ button {
     display: block;
     margin: 48px auto;
 }
+
+form + p {
+    text-align: center;
+}

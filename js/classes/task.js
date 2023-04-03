@@ -1,7 +1,7 @@
 export class Task {
 
-    constructor(id, state, description, user) {
-        this._id = id;
+    constructor(state, description, user) {
+        this._id = Math.random().toString(36).substring(2);
         this._state = state;
         this._description = description;
         this._user = user;

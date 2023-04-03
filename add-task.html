@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/form.css">
+    <script type="module" src="js/modules/form.js" defer></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 
     <form action="get" class="inbox">
         <div class="form-element">
-            <label for="checkbox">Fait</label>
+            <label for="checkbox">Confirmé</label>
             <input type="checkbox" name="checkbox" id="checkbox">
         </div>
         <div class="form-element">
@@ -34,10 +35,14 @@
         </div>
         <div class="form-element">
             <label for="user">Personne</label>
-            <select name="" id=""></select>
+            <select name="" id="">
+                <option value="">Sélectionner une option</option>
+            </select>
         </div>
         <input type="submit" value="Envoyer">
     </form>
+
+    <p></p>
 
 </main>
 

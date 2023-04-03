@@ -1,24 +1,22 @@
-// This file should be ignored. It is used to mock data in this project.
-
 // Helper function that generates some random todos.
 export const generateRandomTask = () => {
   return {
-    id: Math.random().toString(36).substring(2),
-    description: getRandomSentence(),
     state: Math.floor(Math.random() * 2) === 1,
+    description: getRandomSentence(),
   }
 };
 
 export const generateRandomUser = () => {
+  const rand = Math.floor(Math.random() * RANDOM_NAMES.length);
   return {
-    name: RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)],
-    icon: RANDOM_ICONS[Math.floor(Math.random() * RANDOM_ICONS.length)],
+    name: RANDOM_NAMES[rand],
+    icon: RANDOM_ICONS[rand],
   };
 };
 
-const RANDOM_ICONS = ["✈️", "🌸", "🐿", "🍣", "🐤", "🍩"];
+export const RANDOM_ICONS = ["✈️", "🌸", "🐿", "🍣", "🐤", "🍩"];
 
-const RANDOM_NAMES = ["Lou", "Cecelia", "John", "Maria", "Sabine"];
+export const RANDOM_NAMES = ["Lou", "Cecelia", "John", "Maria", "Sabine", "Lila"];
 
 const nouns = [
   "bird",
