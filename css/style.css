@@ -41,3 +41,7 @@ p {
     flex: 1;
     border-left: 1px solid #D1E2FF;
 }
+
+.trash {
+    cursor: pointer;
+}

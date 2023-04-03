@@ -1,14 +1,15 @@
-import { allTasks, retrieveAllTasks } from "./service.mjs";
-import { generateRandomTodos } from "./utils.js";
+import { initializeApp } from "./modules/service.mjs";
 
 // Initialize Tasks
 
-const tasks = generateRandomTodos(10);
+// const tasks = generateRandomTodos(10);
 
-console.log(tasks[0]);
+// console.log(tasks[0]);
 
-tasks.forEach(task => {
-    allTasks.push(task);
-});
+// tasks.forEach(task => {
+//     allTasks.push(task);
+// });
 
-retrieveAllTasks();
+// retrieveAllTasks();
+
+initializeApp(10);
