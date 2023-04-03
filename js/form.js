@@ -1,6 +1,6 @@
 // Modules
-import eventListeners from './service.mjs';
-import { RANDOM_ICONS, RANDOM_NAMES } from './utils.js';
+import eventListeners from './modules/service.mjs';
+import { RANDOM_ICONS, RANDOM_NAMES } from './modules/utils.mjs';
 
 const {handleSubmit} = eventListeners;
 

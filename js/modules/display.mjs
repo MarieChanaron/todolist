@@ -66,5 +66,7 @@ export const displayTask = (task) => {
     row.appendChild(userBox);
     row.appendChild(trashBox);
 
-    tableBody.appendChild(row);
+    if (tableBody) {
+        tableBody.appendChild(row);
+    }
 };

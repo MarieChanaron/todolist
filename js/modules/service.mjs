@@ -3,9 +3,9 @@
 */
 
 // Modules
-import { generateRandomTask, generateRandomUser, findIndex } from "./utils.js";
+import { generateRandomTask, generateRandomUser, findIndex } from "./utils.mjs";
 import { displayTask } from "./display.mjs";
-import { RANDOM_ICONS, RANDOM_NAMES } from './utils.js';
+import { RANDOM_ICONS, RANDOM_NAMES } from './utils.mjs';
 
 // Classes
 import { Task } from '../classes/task.js';
@@ -28,7 +28,6 @@ export const initializeApp = (count) => {
         taskManager.add(task);
         displayTask(task);
     }
-    console.log(taskManager);
 }
 
 const deleteTask = (event) => {
@@ -66,6 +65,7 @@ const handleSubmit = (event) => {
     );
     document.querySelector('form + p').innerText = 'La tâche a bien été ajoutée.';
     document.forms[0].reset();
+    console.log(taskManager);
 }
 
 
