@@ -28,6 +28,9 @@ export const initializeApp = (count) => {
         taskManager.add(task);
         displayTask(task);
     }
+
+    taskManager.export();
+
 }
 
 const deleteTask = (event) => {
@@ -63,6 +66,7 @@ const handleSubmit = (event) => {
             icon: RANDOM_ICONS[userIndex]
         }
     );
+    console.log(taskManager);
     document.querySelector('form + p').innerText = 'La tâche a bien été ajoutée.';
     document.forms[0].reset();
 }
