@@ -1,8 +1,11 @@
 import eventHandlers from './service.mjs';
 
-const createRow = id => {
+const createRow = (id, state) => {
     const row = document.createElement("tr");
     row.setAttribute("data-id", id);
+    if (!state)  {
+        row.classList.add("strikethrough");
+    }
     return row;
 }
 
@@ -55,7 +58,7 @@ export const displayTask = (task) => {
 
     const tableBody = document.querySelector("tbody");
 
-    const row = createRow(id);
+    const row = createRow(id, state);
     const statusBox = createStatusBox(state);
     const descriptionBox = createDescriptionBox(description);
     const userBox = createUserBox(user);

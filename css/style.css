@@ -45,3 +45,7 @@ p {
 .trash {
     cursor: pointer;
 }
+
+.strikethrough > td:nth-child(2) {
+    text-decoration: line-through;
+}

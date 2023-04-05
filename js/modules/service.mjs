@@ -43,7 +43,9 @@ const deleteTask = (event) => {
 }
 
 const changeStatus = event => {
-    const id = event.target.parentNode.parentNode.dataset.id;
+    const row = event.target.parentNode.parentNode;
+    row.classList.toggle('strikethrough');
+    const id = row.dataset.id;
     const index = findIndex(id, taskManager.tasks);
     const task = taskManager.tasks[index];
     task.toggleState();
