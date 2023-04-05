@@ -11,8 +11,14 @@ import { TaskManager } from './classes/taskManager.mjs';
 const taskManager = new TaskManager();
 
 
+// EVENT HANDLERS */
 
-// EVENT HANDLER */
+// Export data on click
+const saveButton = document.querySelector('table + button');
+if (saveButton) {
+    saveButton.addEventListener('click', () => taskManager.export());
+}
+
 
 const deleteTask = (event) => {
     const row = event.target.parentNode.parentNode;

@@ -25,29 +25,52 @@ export class TaskManager {
         )
         .then(response => response.json())
         .then(response => {
-            for (let record of response) {
-                const user = new User(record._user._icon, record._user._name);
-                const task = new Task(record._state, record._description, user);
-                this.add(task);
-                displayTask(task);
+            if (Array.isArray(response) && response.length !== 0) {
+                for (let record of response) {
+                    const user = new User(record._user._icon, record._user._name);
+                    const task = new Task(record._state, record._description, user);
+                    this._tasks.push(task);
+                    displayTask(task);
+                }
+            } else {
+                for (let i = 0; i < 10; i++) {
+                    const {name, icon} = generateRandomUser();
+                    const {state, description} = generateRandomTask();
+                    const user = new User(name, icon);
+                    const task = new Task(state, description, user);
+                    this._tasks.push(task);
+                    displayTask(task);
+                }
+                this.export();
             }
         })
-        .catch(err => {
-            console.log(err);
-            for (let i = 0; i < 10; i++) {
-                const {name, icon} = generateRandomUser();
-                const {state, description} = generateRandomTask();
-                const user = new User(name, icon);
-                const task = new Task(state, description, user);
-                this._tasks.push(task);
-                displayTask(task);
-            }
-            this.export();
-        });
+        .catch(err => console.log(err));
     }
 
 
     get tasks() {
+
+        fetch('http://localhost:3000/tasks', 
+            {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+        .then(response => response.json())
+        .then(response => {
+            if (response._tasks && response.length !== 0) {
+                for (let record of response) {
+                    const user = new User(record._user._icon, record._user._name);
+                    const task = new Task(record._state, record._description, user);
+                    this._tasks.push(task);
+                    displayTask(task);
+                }
+            }
+        });
+
         return this._tasks;
     }
 
