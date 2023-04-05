@@ -17,9 +17,17 @@ import { TaskManager } from '../classes/taskManager.js';
 const taskManager = new TaskManager();
 
 
-// Récupérer les tâches et les afficher
+export const addContent = data => {
+    for (let record of data) {
+        const user = new User(record._user._icon, record._user._name);
+        const task = new Task(record._state, record._description, user);
+        taskManager.add(task);
+        displayTask(task);
+    }
 
-export const initializeApp = (count) => {
+}
+
+export const generateTasks = (count) => {
     for (let i = 0; i < count; i++) {
         const {name, icon} = generateRandomUser();
         const {state, description} = generateRandomTask();
@@ -28,9 +36,7 @@ export const initializeApp = (count) => {
         taskManager.add(task);
         displayTask(task);
     }
-
     taskManager.export();
-
 }
 
 const deleteTask = (event) => {
