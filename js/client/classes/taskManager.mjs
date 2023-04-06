@@ -25,9 +25,9 @@ export class TaskManager {
         )
         .then(response => response.json())
         .then(response => {
-            if (Array.isArray(response) && response.length !== 0) {
-                for (let i = 0; i < response[0].length; i++) {
-                    const record = response[0][i];
+            if (response.length !== 0) {
+                for (let i = 0; i < response.length; i++) {
+                    const record = response[i];
                     const user = new User(record['_user']['_icon'], record['_user']['_name']);
                     const task = new Task(record['_state'], record['_description'], user);
                     this._tasks.push(task);
@@ -45,7 +45,9 @@ export class TaskManager {
                 this.export();
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+        });
     }
 
 
