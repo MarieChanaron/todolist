@@ -6,8 +6,11 @@ import { User } from './classes/user.mjs';
 import { TaskManager } from './classes/taskManager.mjs';
 
 
+let taskManager;
 
-const taskManager = new TaskManager();
+if (taskManager === undefined) {
+    taskManager = new TaskManager();
+}
 
 
 // EVENT HANDLERS */
@@ -29,12 +32,15 @@ const deleteTask = (event) => {
 }
 
 const changeStatus = event => {
+    console.log(taskManager);
     const row = event.target.parentNode.parentNode;
     row.classList.toggle('strikethrough');
     const id = row.dataset.id;
+    console.log(taskManager);
     const index = findIndex(id, taskManager.tasks);
     const task = taskManager.tasks[index];
     task.toggleState();
+    console.log(taskManager);
 }
 
 export const handleSubmit = (event) => {
@@ -57,9 +63,7 @@ export const handleSubmit = (event) => {
 const addTask = (state, description, user) => {
     const newUser = new User(user.name, user.icon);
     const newTask = new Task(state, description, newUser);
-    console.log('newTask : ' + newTask);
     taskManager.add(newTask);
-    console.log(taskManager);
 }
 
 

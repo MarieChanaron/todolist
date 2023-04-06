@@ -12,15 +12,7 @@ export class TaskManager {
 
     constructor() {
 
-        // if (!window.location.href.includes('index.html')) {
-        //     return;
-        // }
-
         this._tasks = [];
-        console.log(typeof this._tasks === "object");
-        console.log("in the constructor " + window.location.href);
-        console.log(typeof this._tasks === "object");
-        console.log(Object.keys(this._tasks).length);
 
         fetch('http://localhost:3000/tasks', 
             {
@@ -39,7 +31,6 @@ export class TaskManager {
                     const user = new User(record['_user']['_icon'], record['_user']['_name']);
                     const task = new Task(record['_state'], record['_description'], user);
                     this._tasks.push(task);
-                    console.log(Object.keys(this._tasks).length);
                     displayTask(task);
                 }
             } else {
@@ -101,10 +92,6 @@ export class TaskManager {
 
     export() {
 
-        this.tasks;
-
-        console.log(JSON.stringify(this.tasks));
-
         fetch('http://localhost:3000/tasks', 
             {
                 method: 'POST',
@@ -112,7 +99,7 @@ export class TaskManager {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.tasks)
+                body: JSON.stringify(this._tasks)
             }
         ).then(response => response.json())
         .then(response => console.log(JSON.stringify(response)));
