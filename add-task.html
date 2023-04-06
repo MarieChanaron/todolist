@@ -22,22 +22,20 @@
 
 <main>
 
-    <form action="get" class="inbox">
-        <div class="form-element">
-            <label for="checkbox">Confirmé</label>
-            <input type="checkbox" name="checkbox" id="checkbox">
+    <form action="get">
+        <div class="inbox">
+            <div class="form-element">
+                <label for="task">Task</label>
+                <textarea class="block" name="task" id="task" rows="3"></textarea>
+            </div>
+            <div class="form-element">
+                <label for="user">Person</label>
+                <select name="" id="">
+                    <option value="-1">Select a person</option>
+                </select>
+            </div>
         </div>
-        <div class="form-element">
-            <label for="task">Tâche</label>
-            <textarea class="block" name="task" id="task" rows="3"></textarea>
-        </div>
-        <div class="form-element">
-            <label for="user">Personne</label>
-            <select name="" id="">
-                <option value="">Sélectionner une option</option>
-            </select>
-        </div>
-        <input type="submit" value="Envoyer">
+        <input type="submit" value="Send" class="button">
     </form>
 
     <p></p>

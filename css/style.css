@@ -50,7 +50,7 @@ p {
     text-decoration: line-through;
 }
 
-table + button {
+.button {
     display: block;
     margin: auto;
     padding: 4px 16px;

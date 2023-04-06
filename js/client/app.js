@@ -41,17 +41,16 @@ const changeStatus = event => {
 export const handleSubmit = (event) => {
     event.preventDefault();
     const form = document.forms[0];
-    const userIndex = form[2].value;
+    const userIndex = Number(form[1].value);
     addTask(
-        form[0].checked,
-        form[1].value,
+        true,
+        form[0].value,
         {
             name: RANDOM_NAMES[userIndex], 
             icon: RANDOM_ICONS[userIndex]
         }
     );
-    console.log(taskManager);
-    document.querySelector('form + p').innerText = 'La tâche a bien été ajoutée.';
+    document.querySelector('form + p').innerText = 'The task has been added.';
     document.forms[0].reset();
 }
 

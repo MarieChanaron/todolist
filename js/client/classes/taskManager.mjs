@@ -77,6 +77,7 @@ export class TaskManager {
 
     add(task) {
         this._tasks.push(task);
+        this.export();
     }
 
 

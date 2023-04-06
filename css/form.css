@@ -1,15 +1,18 @@
 form {
-    width: 600px;
+    width: 800px;
     margin: auto;
-    padding: 40px;
 }
 
-form > * {
-    margin: 0px auto 40px auto;
+form > div > div:first-child {
+    margin-bottom: 40px;
 }
 
 .form-element * {
     display: inline;
+}
+
+form div.inbox {
+    padding: 40px;
 }
 
 textarea {
@@ -33,4 +36,16 @@ button {
 
 form + p {
     text-align: center;
+}
+
+label {
+    margin-right: 32px;
+}
+
+select, 
+textarea {
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+    padding: 2px 8px;
 }
