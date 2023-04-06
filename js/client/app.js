@@ -1,9 +1,8 @@
-// import eventHandlers from './service.mjs';
-
 import { findIndex, RANDOM_ICONS, RANDOM_NAMES } from "./utils.mjs";
 
 // Classes
 import { Task } from './classes/task.mjs';
+import { User } from './classes/user.mjs';
 import { TaskManager } from './classes/taskManager.mjs';
 
 
@@ -56,7 +55,9 @@ export const handleSubmit = (event) => {
 
 
 const addTask = (state, description, user) => {
-    const newTask = new Task(state, description, user);
+    const newUser = new User(user.name, user.icon);
+    const newTask = new Task(state, description, newUser);
+    console.log(newTask);
     taskManager.add(newTask);
 }
 

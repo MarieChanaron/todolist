@@ -26,9 +26,10 @@ export class TaskManager {
         .then(response => response.json())
         .then(response => {
             if (Array.isArray(response) && response.length !== 0) {
-                for (let record of response) {
-                    const user = new User(record._user._icon, record._user._name);
-                    const task = new Task(record._state, record._description, user);
+                for (let i = 0; i < response[0].length; i++) {
+                    const record = response[0][i];
+                    const user = new User(record['_user']['_icon'], record['_user']['_name']);
+                    const task = new Task(record['_state'], record['_description'], user);
                     this._tasks.push(task);
                     displayTask(task);
                 }
@@ -61,10 +62,11 @@ export class TaskManager {
         )
         .then(response => response.json())
         .then(response => {
-            if (response._tasks && response.length !== 0) {
-                for (let record of response) {
-                    const user = new User(record._user._icon, record._user._name);
-                    const task = new Task(record._state, record._description, user);
+            if (Array.isArray(response) && response.length !== 0) {
+                for (let i = 0; i < response[0].length; i++) {
+                    const record = response[0][i];
+                    const user = new User(record['_user']['_icon'], record['_user']['_name']);
+                    const task = new Task(record['_state'], record['_description'], user);
                     this._tasks.push(task);
                     displayTask(task);
                 }
@@ -76,6 +78,7 @@ export class TaskManager {
 
 
     add(task) {
+        console.log(task);
         this._tasks.push(task);
         this.export();
     }

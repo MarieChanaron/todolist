@@ -10,3 +10,7 @@ server.use(jsonServer.bodyParser);
 server.listen(3000, () => {
   console.log('JSON Server is running');
 })
+
+// Start the server:
+// json-server --watch db.json
+// in the server folder
