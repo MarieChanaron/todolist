@@ -70,3 +70,7 @@ td:nth-child(3) p {
 td:nth-child(3) p span:first-child {
     padding-right: 4px;
 }
+
+main > button:first-child {
+    margin-top: 40px;
+}

@@ -1,12 +1,21 @@
 // Modules
 import {handleSubmit} from './app.js';
-import { RANDOM_ICONS, RANDOM_NAMES } from './utils.mjs';
+import { User } from './classes/user.mjs';
+import { Task } from './classes/task.mjs';
+import { RANDOM_ICONS, RANDOM_NAMES, generateRandomTask, generateRandomUser } from './utils.mjs';
 
 
 document.querySelector('input[type="submit"]').addEventListener('click', handleSubmit);
 
 
-const addSelectOptions = () => {
+const generateRandom = event => {
+    event.preventDefault();
+    document.querySelector('textarea').value = generateRandomTask().description;
+    document.querySelector(`option[value="${Math.floor(Math.random() * RANDOM_NAMES.length)}"]`).setAttribute('selected', true);
+}
+
+
+const initializeFormPage = () => {
 
     const select = document.querySelector('select');
 
@@ -16,7 +25,9 @@ const addSelectOptions = () => {
         option.innerText = `${RANDOM_NAMES[i]} ${RANDOM_ICONS[i]}`;
         select.appendChild(option);
     }
+    
+    document.querySelector('form a').addEventListener('click', generateRandom)
 
 }
 
-addSelectOptions();
+initializeFormPage();

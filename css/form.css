@@ -3,10 +3,6 @@ form {
     margin: auto;
 }
 
-form > div > div:first-child {
-    margin-bottom: 40px;
-}
-
 .form-element * {
     display: inline;
 }
@@ -27,6 +23,10 @@ input[type="submit"] {
 .block {
     display: block;
     width: 100%;
+}
+
+.form-element {
+    margin-top: 40px;
 }
 
 button {
