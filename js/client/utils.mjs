@@ -14,7 +14,7 @@ export const generateRandomUser = () => {
   };
 };
 
-export const RANDOM_ICONS = ["✈️", "🌸", "🐿", "🍣", "🐤", "🍩"];
+export const RANDOM_ICONS = ["✈️", "🌸", "🐿️", "🍣", "🐤", "🍩"];
 
 export const RANDOM_NAMES = ["Lou", "Cecelia", "John", "Maria", "Sabine", "Lila"];
 

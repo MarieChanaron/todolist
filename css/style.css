@@ -5,6 +5,7 @@ html, body {
     font-family: 'helvetica neue';
     font-size: 20px;
     font-weight: 200;
+    padding-bottom: 20px;
 }
 
 .inbox {
@@ -60,4 +61,12 @@ p {
     cursor: pointer;
     border-radius: 5px;
     border-color: #59c9ef;
+}
+
+td:nth-child(3) p {
+    width: max-content;
+}
+
+td:nth-child(3) p span:first-child {
+    padding-right: 4px;
 }

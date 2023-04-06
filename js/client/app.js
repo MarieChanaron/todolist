@@ -105,8 +105,8 @@ const createUserBox = user => {
     userName.innerText = user.name;
     const userIcon = document.createElement("span");
     userIcon.innerText = user.icon;
-    userElement.appendChild(userName);
     userElement.appendChild(userIcon);
+    userElement.appendChild(userName);
     userBox.appendChild(userElement);
     return userBox;
 }
