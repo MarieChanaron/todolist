@@ -47,16 +47,20 @@ export const handleSubmit = (event) => {
     event.preventDefault();
     const form = document.forms[0];
     const userIndex = Number(form[1].value);
-    addTask(
-        true,
-        form[0].value,
-        {
-            name: RANDOM_NAMES[userIndex], 
-            icon: RANDOM_ICONS[userIndex]
-        }
-    );
-    document.querySelector('form + p').innerText = 'The task has been added.';
-    document.forms[0].reset();
+    const description = form[0].value;
+    if (userIndex != -1 && description.length) {
+        addTask(
+            true,
+            description,
+            {
+                name: RANDOM_NAMES[userIndex], 
+                icon: RANDOM_ICONS[userIndex]
+            }
+        );
+        document.forms[0].reset();
+    } else {
+        document.querySelector('form + p').innerText = "Kindly enter a task and select a person before submitting.";
+    }
 }
 
 
