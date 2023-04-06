@@ -25,7 +25,7 @@ export class TaskService {
         )
         .then(response => response.json())
         .then(response => {
-            if (response.length !== 0) {
+            if (response.length) {
                 for (let i = 0; i < response.length; i++) {
                     const record = response[i];
                     const user = new User(record['_user']['_icon'], record['_user']['_name']);
@@ -80,9 +80,7 @@ export class TaskService {
 
 
     add(task) {
-        console.log(this._tasks);
         this._tasks.push(task);
-        console.log(this._tasks);
         this.export();
     }
 

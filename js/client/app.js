@@ -6,11 +6,11 @@ import { User } from './classes/user.mjs';
 import { TaskService } from './classes/taskService.mjs';
 
 
-// let taskService;
+let taskService;
 
-// if (taskService === undefined) {
-    const taskService = new TaskService();
-// }
+if (taskService === undefined) {
+    taskService = new TaskService();
+}
 
 
 // EVENT HANDLERS */
