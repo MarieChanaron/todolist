@@ -3,14 +3,14 @@ import { findIndex, RANDOM_ICONS, RANDOM_NAMES } from "./utils.mjs";
 // Classes
 import { Task } from './classes/task.mjs';
 import { User } from './classes/user.mjs';
-import { TaskManager } from './classes/taskManager.mjs';
+import { TaskService } from './classes/taskService.mjs';
 
 
-let taskManager;
+// let taskService;
 
-if (taskManager === undefined) {
-    taskManager = new TaskManager();
-}
+// if (taskService === undefined) {
+    const taskService = new TaskService();
+// }
 
 
 // EVENT HANDLERS */
@@ -18,29 +18,27 @@ if (taskManager === undefined) {
 // Export data on click
 const saveButton = document.querySelector('table + button');
 if (saveButton) {
-    saveButton.addEventListener('click', () => taskManager.export());
+    saveButton.addEventListener('click', () => taskService.export());
 }
 
 
 const deleteTask = (event) => {
     const row = event.target.parentNode.parentNode;
     const id = row.dataset.id;
-    const index = findIndex(id, taskManager.tasks); // Remove from the array
-    taskManager.delete(index);
+    const index = findIndex(id, taskService.tasks); // Remove from the array
+    taskService.delete(index);
     const tableBody = document.querySelector("tbody");
     tableBody.removeChild(row); // Remove from the DOM
 }
 
 const changeStatus = event => {
-    console.log(taskManager);
     const row = event.target.parentNode.parentNode;
     row.classList.toggle('strikethrough');
     const id = row.dataset.id;
-    console.log(taskManager);
-    const index = findIndex(id, taskManager.tasks);
-    const task = taskManager.tasks[index];
+    const index = findIndex(id, taskService.tasks);
+    const task = taskService.tasks[index];
     task.toggleState();
-    console.log(taskManager);
+    console.log(taskService);
 }
 
 export const handleSubmit = (event) => {
@@ -67,7 +65,7 @@ export const handleSubmit = (event) => {
 const addTask = (state, description, user) => {
     const newUser = new User(user.name, user.icon);
     const newTask = new Task(state, description, newUser);
-    taskManager.add(newTask);
+    taskService.add(newTask);
 }
 
 

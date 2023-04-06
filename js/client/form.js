@@ -1,8 +1,6 @@
 // Modules
 import {handleSubmit} from './app.js';
-import { User } from './classes/user.mjs';
-import { Task } from './classes/task.mjs';
-import { RANDOM_ICONS, RANDOM_NAMES, generateRandomTask, generateRandomUser } from './utils.mjs';
+import { RANDOM_ICONS, RANDOM_NAMES, generateRandomTask } from './utils.mjs';
 
 
 document.querySelector('input[type="submit"]').addEventListener('click', handleSubmit);

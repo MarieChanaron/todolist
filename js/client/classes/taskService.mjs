@@ -7,7 +7,7 @@ import { Task } from './task.mjs';
 import { User } from './user.mjs';
 
 
-export class TaskManager {
+export class TaskService {
 
 
     constructor() {
