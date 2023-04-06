@@ -57,8 +57,9 @@ export const handleSubmit = (event) => {
 const addTask = (state, description, user) => {
     const newUser = new User(user.name, user.icon);
     const newTask = new Task(state, description, newUser);
-    console.log(newTask);
+    console.log('newTask : ' + newTask);
     taskManager.add(newTask);
+    console.log(taskManager);
 }
 
 

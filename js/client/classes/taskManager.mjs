@@ -12,8 +12,16 @@ export class TaskManager {
 
     constructor() {
 
+        // if (!window.location.href.includes('index.html')) {
+        //     return;
+        // }
+
         this._tasks = [];
-        
+        console.log(typeof this._tasks === "object");
+        console.log("in the constructor " + window.location.href);
+        console.log(typeof this._tasks === "object");
+        console.log(Object.keys(this._tasks).length);
+
         fetch('http://localhost:3000/tasks', 
             {
                 method: 'GET',
@@ -31,6 +39,7 @@ export class TaskManager {
                     const user = new User(record['_user']['_icon'], record['_user']['_name']);
                     const task = new Task(record['_state'], record['_description'], user);
                     this._tasks.push(task);
+                    console.log(Object.keys(this._tasks).length);
                     displayTask(task);
                 }
             } else {
@@ -78,8 +87,9 @@ export class TaskManager {
 
 
     add(task) {
-        console.log(task);
+        console.log(this._tasks);
         this._tasks.push(task);
+        console.log(this._tasks);
         this.export();
     }
 
@@ -90,6 +100,10 @@ export class TaskManager {
 
 
     export() {
+
+        this.tasks;
+
+        console.log(JSON.stringify(this.tasks));
 
         fetch('http://localhost:3000/tasks', 
             {
